@@ -41,7 +41,11 @@ public class OrderListenerManager {
         String responseQueueName = getResponseQueueName(restaurantId);
         String responseRoutingKey = getResponseRoutingKey(restaurantId);
 
+        log.info("Creating channel...");
+
         Channel channel = connection.createChannel();
+
+        log.info("Channel created...");
 
         // Declare request and response queues
         channel.queueDeclare(requestQueueName, true, false, false, null);

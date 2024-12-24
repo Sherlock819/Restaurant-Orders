@@ -21,6 +21,7 @@ public class ListenerScheduler {
     private OrderServiceClient orderServiceClient;
 
     // Runs every 5 minutes
+    @PostConstruct
     @Scheduled(fixedRate = 300000, cron = CRON_DISABLED)
     public void scheduleListenerUpdate() {
         try {
