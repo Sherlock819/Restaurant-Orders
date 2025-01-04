@@ -47,6 +47,9 @@ public class OrderListenerManager {
 
         log.info("Channel created...");
 
+        // Declare the exchange
+        channel.exchangeDeclare(RabbitMQConfig.ORDER_EXCHANGE, "direct", true);
+
         // Declare request and response queues
         channel.queueDeclare(requestQueueName, true, false, false, null);
         channel.queueDeclare(responseQueueName, true, false, false, null);
